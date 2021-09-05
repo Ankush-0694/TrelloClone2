@@ -55,7 +55,7 @@ const Navbar = ({ history }) => {
       }
     }
     loadUser();
-  }, []);
+  }, [isAuthenticated]);
 
   const onLogout = () => {
     dispatch({ type: "LOGOUT" });

@@ -8,8 +8,11 @@ import { AppStateContextProvider } from "./components/appState/appState.context"
 import HomePage from "./components/pages/homepage/homepage";
 import { Toolbar } from "@material-ui/core";
 import PrivateRoute from "./components/routing/PrivateRoutes";
+import setAuthToken from "./util/setAuthToken";
 
 function App() {
+  setAuthToken(localStorage.getItem("Trello"));
+
   return (
     <AppStateContextProvider>
       <BrowserRouter>

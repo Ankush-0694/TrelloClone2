@@ -3,18 +3,27 @@ const auth = require("../../middleware/auth");
 const CardList = require("../../model/CardList");
 const router = express.Router();
 
-router.get("/getLists", async (req, res) => {
-  const data = await CardList.find({});
-  res.send(data);
+router.get("/getLists", auth, async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const data = await CardList.find({ userId });
+    res.send(data);
+  } catch (error) {
+    res.status(500).send("Server error");
+  }
 });
 
-router.post("/addList", async (req, res) => {
+router.post("/addList", auth, async (req, res) => {
   const { title, cards } = req.body;
 
   const userId = req.user.id;
 
+  // console.log(userId);
+
   try {
     const newList = new CardList({
+      userId,
       title,
       cards,
     });
