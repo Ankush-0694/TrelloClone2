@@ -47,10 +47,7 @@ const Login = (props) => {
       /*  Do any task */
 
       try {
-        const res = await axios.post(
-          "http://localhost:5001/auth/login",
-          userDetails
-        );
+        const res = await axios.post("/auth/login", userDetails);
         console.log(res.data);
 
         dispatch({ type: "LOGIN_SUCCESS", value: res.data });

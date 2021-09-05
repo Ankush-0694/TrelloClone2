@@ -14,7 +14,7 @@ export const TaskCard = ({ card, listId }) => {
     };
 
     const res = await axios.delete(
-      `http://localhost:5001/card/removeCard/${_id}`,
+      `/card/removeCard/${_id}`,
 
       { data: { listId } },
 
@@ -27,7 +27,7 @@ export const TaskCard = ({ card, listId }) => {
   };
 
   const handleCardInput = async (e) => {
-    const res = await axios.put(`http://localhost:5001/card/cardInput`, {
+    const res = await axios.put(`/card/cardInput`, {
       [e.target.name]: e.target.value,
       _id,
       listId,

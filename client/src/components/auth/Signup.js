@@ -64,11 +64,7 @@ const Signup = (props) => {
       };
 
       try {
-        const res = await axios.post(
-          "http://localhost:5001/auth/register",
-          userDetails,
-          config
-        );
+        const res = await axios.post("/auth/register", userDetails, config);
         console.log(res.data);
 
         dispatch({ type: "REGISTER_SUCCESS", value: res.data });

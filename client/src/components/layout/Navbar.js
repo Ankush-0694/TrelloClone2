@@ -45,7 +45,7 @@ const Navbar = ({ history }) => {
       setAuthToken(localStorage.getItem("Trello"));
 
       try {
-        const res = await axios.get("http://localhost:5001/auth/loadUser");
+        const res = await axios.get("/auth/loadUser");
 
         console.log(res.data);
 

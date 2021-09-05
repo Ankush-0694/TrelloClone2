@@ -14,7 +14,7 @@ const HomePage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:5001/card/getLists");
+      const res = await axios.get("/card/getLists");
       dispatch({ type: "GET_LISTS", value: res.data });
     }
 
@@ -22,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   const handleListAdd = async () => {
-    const res = await axios.post("http://localhost:5001/card/addList", {
+    const res = await axios.post("/card/addList", {
       title: "CardList",
       cards: [],
     });

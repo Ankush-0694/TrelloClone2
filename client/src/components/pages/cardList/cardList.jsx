@@ -13,7 +13,7 @@ export const CardList = ({ cardlist, cardlistIdx }) => {
   const [appState, dispatch] = stateAndDispatch;
 
   const handleCardAdd = async () => {
-    const res = await axios.post("http://localhost:5001/card/addCard", {
+    const res = await axios.post("/card/addCard", {
       title: "",
       description: "",
       _id: _id,
@@ -29,10 +29,7 @@ export const CardList = ({ cardlist, cardlistIdx }) => {
       "Content-Type": "application/json",
     };
 
-    const res = await axios.delete(
-      `http://localhost:5001/card/removeList/${_id}`,
-      headers
-    );
+    const res = await axios.delete(`/card/removeList/${_id}`, headers);
 
     console.log(res.data);
 
@@ -40,7 +37,7 @@ export const CardList = ({ cardlist, cardlistIdx }) => {
   };
 
   const handleListTitleChange = async (e) => {
-    const res = await axios.put(`http://localhost:5001/card/listTitleUpdate`, {
+    const res = await axios.put(`/card/listTitleUpdate`, {
       title: e.target.value,
       _id,
     });
@@ -60,7 +57,7 @@ export const CardList = ({ cardlist, cardlistIdx }) => {
     const sourceListId = e.dataTransfer.getData("cardListId");
     const destinationListId = cardlist._id;
     try {
-      const res = await axios.put("http://localhost:5001/card/moveTask", {
+      const res = await axios.put("/card/moveTask", {
         cardId,
         sourceListId,
         destinationListId,
