@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require("../../middleware/auth");
 const CardList = require("../../model/CardList");
 const router = express.Router();
 
@@ -9,6 +10,8 @@ router.get("/getLists", async (req, res) => {
 
 router.post("/addList", async (req, res) => {
   const { title, cards } = req.body;
+
+  const userId = req.user.id;
 
   try {
     const newList = new CardList({

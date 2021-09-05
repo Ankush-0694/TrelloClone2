@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const ListSchema = new mongoose.Schema({
+  userId: mongoose.Schema.Types.ObjectId,
+
   title: {
     type: String,
   },
