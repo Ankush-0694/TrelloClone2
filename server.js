@@ -17,10 +17,6 @@ connectDB();
 
 app.use(cors());
 
-// app.get("/", (req, res) => {
-//   res.send("HELLO");
-// });
-
 // Routes
 app.use("/auth", require("./src/auth/api"));
 app.use("/card", require("./src/cardList/api"));
