@@ -12,6 +12,8 @@ export const appState = {
 
   Lists: [],
   loading: true,
+
+  error: null,
 };
 
 // this is reducer code
@@ -42,8 +44,6 @@ export const reducer = (state, action) => {
         loading: false,
       };
 
-    case "REGISTER_FAIL":
-    case "LOGIN_FAIL":
     case "LOGOUT":
     case "AUTH_ERROR":
       localStorage.removeItem("Trello");
@@ -54,6 +54,25 @@ export const reducer = (state, action) => {
           token: null,
         },
         loading: false,
+      };
+
+    case "LOGIN_FAIL":
+    case "REGISTER_FAIL":
+      localStorage.removeItem("Trello");
+      return {
+        ...state,
+        auth: {
+          isAuthenticated: false,
+          token: null,
+        },
+        loading: false,
+        error: action.value,
+      };
+
+    case "CLEAR_ERROR":
+      return {
+        ...state,
+        error: null,
       };
 
     // these all for updation of Lists

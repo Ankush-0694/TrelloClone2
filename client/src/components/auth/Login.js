@@ -11,7 +11,7 @@ const Login = (props) => {
   const { stateAndDispatch } = useContext(AppStateContext);
   const [appState, dispatch] = stateAndDispatch;
 
-  // const { loading } = appState;
+  const { error } = appState;
 
   const [userDetails, setUserDetails] = useState({
     email: "",
@@ -66,8 +66,11 @@ const Login = (props) => {
     }
   };
 
+  // console.log(error);
+
   return (
     <div>
+      {error && <MyAlert type="error">{error}</MyAlert>}
       {props.location.state && (
         <MyAlert type="error">{props.location.state}</MyAlert>
       )}

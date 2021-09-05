@@ -5,10 +5,13 @@ import { MyCenterDiv } from "../MaterialUiDesign/CentralDiv";
 import { validateSignupForm } from "../layout/formValidation";
 import axios from "axios";
 import { AppStateContext } from "../appState/appState.context";
+import MyAlert from "../MaterialUiDesign/MyAlert";
 
 const Signup = (props) => {
   const { stateAndDispatch } = useContext(AppStateContext);
   const [appState, dispatch] = stateAndDispatch;
+
+  const { error } = appState;
 
   const [userDetails, setUserDetails] = useState({
     firstName: "",
@@ -90,6 +93,8 @@ const Signup = (props) => {
 
   return (
     <div>
+      {error && <MyAlert type="error">{error}</MyAlert>}
+
       <MyCenterDiv display="flex" width="100%" height="100vh">
         <form
           onSubmit={onSubmit}

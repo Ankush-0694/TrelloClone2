@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Slide, Snackbar } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
+import { AppStateContext } from "../appState/appState.context";
 
 const Alert = React.forwardRef((props, ref) => {
   return <MuiAlert ref={ref} elevation={6} variant="filled" {...props} />;
@@ -14,6 +15,8 @@ function Transition(props) {
 
 const MyAlert = ({ children, type, ...otherProps }) => {
   const [open, setOpen] = useState(true);
+  const { stateAndDispatch } = useContext(AppStateContext);
+  const [appState, dispatch] = stateAndDispatch;
 
   /** used to remove error but that was due to fade transition */
   const alertref = useRef(null);
@@ -41,6 +44,8 @@ const MyAlert = ({ children, type, ...otherProps }) => {
      * after alert get closed
      * we it is the same var we are using everywhere
      */
+
+    dispatch({ type: "CLEAR_ERROR" });
 
     setOpen(false);
   };
