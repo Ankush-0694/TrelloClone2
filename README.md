@@ -6,7 +6,7 @@
 
 ## Authentication added using Jwt and Routing also done in react app
 
-## Responsive List for different screen expect for IPHONE SE
+## Responsive List for different screen 
 
 
 
