@@ -1,0 +1,27 @@
+.homepage-container {
+  padding: 10px;
+  justify-content: space-around;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.listadd-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  backface-visibility: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.listadd-btn:hover {
+  transform: scale(1.1);
+}
+
+.cardlist-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin: 10px;
+}
