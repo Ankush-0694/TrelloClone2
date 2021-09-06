@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Ankush321:Ank446ush@contactkeeper.ay1xg.mongodb.net/Trello?retryWrites=true&w=majority",
+  "jwtSecret": "youCanNotGuessMyJwtSecretKey"
+}
