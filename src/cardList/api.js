@@ -131,7 +131,7 @@ router.delete("/removeCard/:id", async (req, res) => {
   }
 });
 
-router.put("/moveTask", async (req, res) => {
+router.put("/moveTask", auth, async (req, res) => {
   const { cardId, sourceListId, destinationListId } = req.body;
 
   try {
@@ -165,7 +165,7 @@ router.put("/moveTask", async (req, res) => {
 
     // console.log(destinationList);
 
-    const finalData = await CardList.find({});
+    const finalData = await CardList.find({ userId: req.user.id });
     // console.log(finalData);
 
     res.send(finalData);
