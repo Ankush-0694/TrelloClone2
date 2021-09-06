@@ -2,7 +2,6 @@
   padding: 10px;
   justify-content: space-around;
   height: calc(100vh - 64px);
-  overflow: hidden;
   overflow-x: scroll;
 }
 
@@ -24,4 +23,34 @@
   flex-direction: row;
   padding: 5px;
   margin: 10px;
+}
+
+@media screen and (max-width: 450px) {
+  .cardlist-container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  .cardlist-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .cardlist-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+  .cardlist-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
 }
